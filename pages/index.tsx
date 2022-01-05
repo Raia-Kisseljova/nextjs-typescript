@@ -1,23 +1,14 @@
 import { Card } from "../components/organisms/Card";
 import Head from "next/head";
+import { IPerson } from "../types";
 import type { NextPage } from "next";
 import React from "react";
 import { Title } from "../components/atoms/Title";
 import axios from "axios";
 import styled from "styled-components";
 
-interface Person {
-  name: string;
-  surname: string;
-  email: string;
-  dob: string;
-  profilePicture: string;
-  theme: string;
-  description: string;
-}
-
 const Home: NextPage = () => {
-  const [personData, setPersonData] = React.useState<Person[]>([]);
+  const [personData, setPersonData] = React.useState<IPerson[]>([]);
 
   React.useEffect(() => {
     axios.get("https://dummy-api.deta.dev/user").then((res) => {

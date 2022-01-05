@@ -1,8 +1,6 @@
+import { isClicked } from "../../../types";
 import styled from "styled-components";
 
-interface isClicked {
-  isClicked: boolean;
-}
 export const CardDiv = styled.div`
   background-color: ${(props) => (props.theme === "light" ? "white" : "black")};
   color: ${(props) => (props.theme === "light" ? "black" : "white")};
