@@ -1,5 +1,6 @@
 import {
   BoldSpan,
+  BoldSpanClicked,
   CardDiv,
   CardImage,
   Span,
@@ -20,9 +21,9 @@ interface Person {
   description: string;
 }
 
-interface isClicked {
-  isClicked: boolean;
-}
+// interface isClicked {
+//   isClicked: boolean;
+// }
 
 export default function Card({ person }: { person: Person }) {
   const [isClicked, setIsClicked] = React.useState(false);
@@ -33,6 +34,7 @@ export default function Card({ person }: { person: Person }) {
       .then((res) => {
         setIsClicked((isClicked) => !isClicked);
         setUserGreeting(res.data);
+        console.log(res.data);
         // TODO display the greeting from here  (resp.data)
       });
   };
@@ -41,7 +43,9 @@ export default function Card({ person }: { person: Person }) {
     <>
       {isClicked ? (
         <CardDiv theme={person.theme} onClick={() => setIsClicked(false)}>
-          <BoldSpan isClicked={isClicked}>{userGreeting}</BoldSpan>
+          <BoldSpanClicked isClicked={isClicked}>
+            {userGreeting}
+          </BoldSpanClicked>
         </CardDiv>
       ) : (
         <CardDiv theme={person.theme} onClick={() => greetUser(person.name)}>

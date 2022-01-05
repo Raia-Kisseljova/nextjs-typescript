@@ -22,8 +22,13 @@ export const CardDiv = styled.div`
   position: relative;
 `;
 
-export const BoldSpan = styled.span<isClicked>`
+export const BoldSpanClicked = styled.span<isClicked>`
   font-size: ${(props) => (props.isClicked ? "1.4rem" : "0.9rem")};
+`;
+
+export const BoldSpan = styled.span<isClicked>`
+  font-size: 1rem;
+  font-weight: 600;
 `;
 
 export const Span = styled.span`
